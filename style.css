@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #132649, #4e80d8, #005aa7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    perspective: 1000px;
+}
+
+.container {
+    background: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    width: 350px;
+}
+.container h1 {
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.search-box input {
+    border: 2px solid #0078c2;
+    border-radius: 5px 0 0 5px;
+    padding: 10px;
+    width: 70%;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    transition: all 0.3s ease;
+}
+.search-box input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 131, 143, 0.5);
+}
+
+.search-box button {
+    background: #0078c2;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: all 0.3s ease;
+}
+
+.search-box button:hover {
+    background: #002761;
+}
+
+/* Loader Styles */
+#loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+    margin: 20px auto;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Weather Icon Styles */
+.weather-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    margin: 30px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.weather-icon i {
+    display: none;
+    margin: 0 10px;
+}
+/* Temperature, Description, Humidity, and Wind Styles */
+#temperature {
+    font-size: 24px;
+    margin: 20px 0;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+#temperature::before {
+    content: "\f2c9";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 3rem;
+    top: 0;
+    font-size: 24px;
+    color: #ffcc00;
+    animation: flash 1s linear infinite;
+}
+
+#description, #humidity, #wind {
+    margin: 10px 0;
+    color: #555;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    position: relative;
+}
+#humidity::before {
+    content: "\f043";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 6rem;
+    top: 0;
+    font-size: 24px;
+    color: #00aaff;
+    animation: flash 1s linear infinite;
+}
+
+.wind {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wind i {
+    margin-right: 10px;
+}
+
+/* Date, Time, Year Styles */
+.date-time {
+    margin-top: 20px;
+}
+
+.date-time p {
+    margin: 5px 0;
+    color: #555;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    position: relative;
+}
+
+.date-time i {
+    margin-right: 10px;
+}
+/* Weather Animation Styles */
+.fas.fa-sun {
+    color: #FFD700;
+    animation: rotate 10s linear infinite;
+}
+
+.fas.fa-moon {
+    color: #FFA500;
+    animation: rotate 10s linear infinite;
+}
+
+.fas.fa-cloud {
+    color: #B0C4DE;
+    animation: float 6s ease-in-out infinite;
+}
+
+.fas.fa-cloud-rain {
+    color: #76c7c0;
+    animation: float 6s ease-in-out infinite, rain 3s linear infinite;
+}
+
+.fas.fa-snowflake {
+    color: #00aaff;
+    animation: float 6s ease-in-out infinite, snow 5s linear infinite;
+}
+
+.fas.fa-bolt {
+    color: #ffcc00;
+    animation: flash 1s linear infinite;
+}
+
+.fas.fa-wind {
+    color: #66ccff;
+    animation: blow 3s linear infinite;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes flash {
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+@keyframes blow {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+}
+
+@keyframes rain {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+@keyframes snow {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(20px);
+    }
+}
